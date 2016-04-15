@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import com.fanyafeng.orlitedemo.BaseActivity;
 import com.fanyafeng.orlitedemo.R;
@@ -17,6 +18,7 @@ import com.fanyafeng.orlitedemo.dao.Song;
 import org.litepal.crud.DataSupport;
 import org.litepal.tablemanager.Connector;
 
+import java.util.List;
 import java.util.Random;
 
 public class LitePalActivity extends BaseActivity {
@@ -52,6 +54,8 @@ public class LitePalActivity extends BaseActivity {
         findViewById(R.id.btn_pal_update_three).setOnClickListener(this);
         findViewById(R.id.btn_pal_update_four).setOnClickListener(this);
         findViewById(R.id.btn_pal_update_five).setOnClickListener(this);
+        findViewById(R.id.btn_pal_query_one).setOnClickListener(this);
+        findViewById(R.id.btn_pal_query_all).setOnClickListener(this);
     }
 
     @Override
@@ -85,15 +89,36 @@ public class LitePalActivity extends BaseActivity {
             case R.id.btn_pal_del_all:
                 delAll();
                 break;
+            case R.id.btn_pal_query_one:
+                queryOne();
+                break;
+            case R.id.btn_pal_query_all:
+                queryAll();
+                break;
         }
     }
 
     /**
+     * 单个查询
+     */
+    private void queryOne() {
+        Song song = DataSupport.find(Song.class, 2);
+        Toast.makeText(this, song.toString(), Toast.LENGTH_LONG).show();
+    }
+
+    /**
+     * 批量或模糊查询
+     */
+    private void queryAll() {
+        List<Song> songList = DataSupport.where("name like ?", "song%").order("duration").find(Song.class);
+        Toast.makeText(this,songList.toString(),Toast.LENGTH_LONG).show();
+    }
+
+    /**
      * 删除单个item
-     *
+     * <p/>
      * 删除的查找方式和更新方式一样,可以批量,可以单个
      * 可以精准,可以模糊
-     *
      */
     private void delOne() {
         DataSupport.delete(Song.class, 10);
