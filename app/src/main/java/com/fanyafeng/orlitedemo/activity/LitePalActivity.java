@@ -50,6 +50,8 @@ public class LitePalActivity extends BaseActivity {
         findViewById(R.id.btn_pal_update_one).setOnClickListener(this);
         findViewById(R.id.btn_pal_update_two).setOnClickListener(this);
         findViewById(R.id.btn_pal_update_three).setOnClickListener(this);
+        findViewById(R.id.btn_pal_update_four).setOnClickListener(this);
+        findViewById(R.id.btn_pal_update_five).setOnClickListener(this);
     }
 
     @Override
@@ -70,6 +72,12 @@ public class LitePalActivity extends BaseActivity {
                 break;
             case R.id.btn_pal_update_three:
                 updateThree();
+                break;
+            case R.id.btn_pal_update_four:
+                updateFour();
+                break;
+            case R.id.btn_pal_update_five:
+                updateFive();
                 break;
         }
     }
@@ -99,6 +107,24 @@ public class LitePalActivity extends BaseActivity {
         Album albumToUpdate = new Album();
         albumToUpdate.setPrice(10.99f);
         albumToUpdate.updateAll("name = ?", "album");
+    }
+
+    /**
+     * 更新方式4,模糊匹配,
+     */
+    private void updateFour() {
+        Song songToUpdate = new Song();
+        songToUpdate.setDuration(306);
+        songToUpdate.updateAll("duration > ?", "305");
+    }
+
+    /**
+     * 更新方式5,模糊匹配,字符类型需要加上%
+     */
+    private void updateFive() {
+        Album albumToUpdate = new Album();
+        albumToUpdate.setPrice(10.99f);
+        albumToUpdate.updateAll("name like ?", "album%");
     }
 
     /**
