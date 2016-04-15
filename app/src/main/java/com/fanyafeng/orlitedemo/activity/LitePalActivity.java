@@ -79,7 +79,31 @@ public class LitePalActivity extends BaseActivity {
             case R.id.btn_pal_update_five:
                 updateFive();
                 break;
+            case R.id.btn_pal_del_one:
+                delOne();
+                break;
+            case R.id.btn_pal_del_all:
+                delAll();
+                break;
         }
+    }
+
+    /**
+     * 删除单个item
+     *
+     * 删除的查找方式和更新方式一样,可以批量,可以单个
+     * 可以精准,可以模糊
+     *
+     */
+    private void delOne() {
+        DataSupport.delete(Song.class, 10);
+    }
+
+    /**
+     * 批量删除
+     */
+    private void delAll() {
+        DataSupport.deleteAll(Song.class, "duration = ?", "306");
     }
 
     /**
