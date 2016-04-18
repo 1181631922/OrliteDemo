@@ -107,16 +107,16 @@ public class LitePalActivity extends BaseActivity {
     }
 
     /**
-     * 批量或模糊查询
+     * 批量或模糊查询,order为排序
      */
     private void queryAll() {
         List<Song> songList = DataSupport.where("name like ?", "song%").order("duration").find(Song.class);
-        Toast.makeText(this,songList.toString(),Toast.LENGTH_LONG).show();
+        Toast.makeText(this, songList.toString(), Toast.LENGTH_LONG).show();
     }
 
     /**
      * 删除单个item
-     * <p/>
+     * <p>
      * 删除的查找方式和更新方式一样,可以批量,可以单个
      * 可以精准,可以模糊
      */
@@ -178,13 +178,16 @@ public class LitePalActivity extends BaseActivity {
 
     /**
      * 插入album,name相同的话不会重复插入
+     * 需要手动去判断,虽然重复不会crash,但控制台会报错
      */
     private void insertAlbum() {
-        Album album = new Album();
-        album.setName("album");
-        album.setPrice(10.99f);
+        for (int i = 0; i < 100; i++) {
+            Album album = new Album();
+            album.setName("album" + i);
+            album.setPrice(10.99f);
 //        album.setCover(getCoverImageBytes());
-        album.save();
+            album.save();
+        }
     }
 
     /**

@@ -10,6 +10,7 @@ import android.view.View;
 
 import com.fanyafeng.orlitedemo.BaseActivity;
 import com.fanyafeng.orlitedemo.R;
+import com.fanyafeng.orlitedemo.recycleview.activity.MyRecycleViewActivity;
 
 public class MainActivity extends BaseActivity {
 
@@ -49,6 +50,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.btn_litepal:
                 startActivity(new Intent(this,LitePalActivity.class));
+                break;
+            case R.id.btn_recycle:
+                startActivity(new Intent(this, MyRecycleViewActivity.class));
                 break;
         }
     }

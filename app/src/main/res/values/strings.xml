@@ -3,4 +3,5 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_lite_pal">LitePalActivity</string>
+    <string name="title_activity_my_recycle_view">MyRecycleViewActivity</string>
 </resources>
