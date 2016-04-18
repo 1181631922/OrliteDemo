@@ -8,9 +8,17 @@
     tools:context="com.fanyafeng.orlitedemo.recycleview.activity.MyRecycleViewActivity"
     tools:showIn="@layout/activity_my_recycle_view">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rv_myrecycleview"
+    <com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout
+        android:id="@+id/swipyrefreshlayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        app:direction="both">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_myrecycleview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout>
 
 </RelativeLayout>
