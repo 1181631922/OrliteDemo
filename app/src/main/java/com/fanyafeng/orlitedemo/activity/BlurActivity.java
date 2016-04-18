@@ -1,23 +1,28 @@
 package com.fanyafeng.orlitedemo.activity;
 
-import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
-import com.fanyafeng.orlitedemo.BaseActivity;
 import com.fanyafeng.orlitedemo.R;
-import com.fanyafeng.orlitedemo.recycleview.activity.MyRecycleViewActivity;
 
-public class MainActivity extends BaseActivity {
+
+public class BlurActivity extends AppCompatActivity {
+    private ImageView iv_blur;
+    private CoordinatorLayout layout_blur_parent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_blur);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -33,32 +38,14 @@ public class MainActivity extends BaseActivity {
         initData();
     }
 
-    private void initView(){
+    private void initView() {
+        iv_blur = (ImageView) findViewById(R.id.iv_blur);
+        layout_blur_parent = (CoordinatorLayout) findViewById(R.id.layout_blur_parent);
 
     }
 
-    private void initData(){
+    private void initData() {
 
     }
-
-    @Override
-    public void onClick(View v) {
-        super.onClick(v);
-        switch (v.getId()){
-            case R.id.btn_ormlite:
-
-                break;
-            case R.id.btn_litepal:
-                startActivity(new Intent(this,LitePalActivity.class));
-                break;
-            case R.id.btn_recycle:
-                startActivity(new Intent(this, MyRecycleViewActivity.class));
-                break;
-            case R.id.btn_blur:
-                startActivity(new Intent(this,BlurActivity.class));
-                break;
-        }
-    }
-
 
 }

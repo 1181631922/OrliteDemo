@@ -4,4 +4,6 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_lite_pal">LitePalActivity</string>
     <string name="title_activity_my_recycle_view">MyRecycleViewActivity</string>
+    <string name="title_activity_folder">FolderActivity</string>
+    <string name="title_activity_blur">BlurActivity</string>
 </resources>

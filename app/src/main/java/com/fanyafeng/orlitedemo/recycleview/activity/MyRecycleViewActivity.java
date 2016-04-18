@@ -27,9 +27,10 @@ import java.util.List;
 
 public class MyRecycleViewActivity extends BaseActivity {
     private RecyclerView rv_myrecycleview;
-    private List<String> stringList=new ArrayList<>();
+    private List<String> stringList = new ArrayList<>();
     private MyRecycleViewAdapter myRecycleViewAdapter;
     private SwipyRefreshLayout swipyrefreshlayout;
+    private int count = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,13 +54,22 @@ public class MyRecycleViewActivity extends BaseActivity {
 
     private void getData() {
         List<Album> albumList = DataSupport.where("name like ?", "album%").find(Album.class);
-        for (int i = 0; i < albumList.size(); i++) {
-            stringList.add(albumList.get(i).getName());
+        int remain = albumList.size() % 21;
+        int myCount = (albumList.size() - remain) / 21;
+        if (count > myCount) {
+            Toast.makeText(this, "已经加载完毕", Toast.LENGTH_SHORT).show();
+            return;
+        } else {
+            count += 1;
+            for (int i = (count - 1) * 21; i < (count == (myCount + 1) ? (count - 1) * 21 + remain : count * 21); i++) {
+                stringList.add(albumList.get(i).getName());
+
+            }
         }
     }
 
     private void initView() {
-        swipyrefreshlayout= (SwipyRefreshLayout) findViewById(R.id.swipyrefreshlayout);
+        swipyrefreshlayout = (SwipyRefreshLayout) findViewById(R.id.swipyrefreshlayout);
         rv_myrecycleview = (RecyclerView) findViewById(R.id.rv_myrecycleview);
     }
 
@@ -67,26 +77,20 @@ public class MyRecycleViewActivity extends BaseActivity {
         myRecycleViewAdapter = new MyRecycleViewAdapter(this, stringList);
         rv_myrecycleview.setAdapter(myRecycleViewAdapter);
 //        rv_myrecycleview.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
-        rv_myrecycleview.setLayoutManager(new GridLayoutManager(this,3,GridLayoutManager.VERTICAL,false));
+        rv_myrecycleview.setLayoutManager(new GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false));
 
         swipyrefreshlayout.setOnRefreshListener(new SwipyRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh(SwipyRefreshLayoutDirection direction) {
-                if (direction==SwipyRefreshLayoutDirection.TOP){
-                    Toast.makeText(MyRecycleViewActivity.this,"下拉刷新",Toast.LENGTH_SHORT).show();
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                if (direction == SwipyRefreshLayoutDirection.TOP) {
+                    stringList.clear();
+                    count = 0;
+                    getData();
+                    myRecycleViewAdapter.notifyDataSetChanged();
                     swipyrefreshlayout.setRefreshing(false);
-                }else if (direction==SwipyRefreshLayoutDirection.BOTTOM){
-                    Toast.makeText(MyRecycleViewActivity.this,"上拉加载",Toast.LENGTH_SHORT).show();
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+                } else if (direction == SwipyRefreshLayoutDirection.BOTTOM) {
+                    getData();
+                    myRecycleViewAdapter.notifyDataSetChanged();
                     swipyrefreshlayout.setRefreshing(false);
                 }
             }

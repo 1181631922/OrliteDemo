@@ -26,6 +26,14 @@
         <activity
             android:name=".recycleview.activity.MyRecycleViewActivity"
             android:label="@string/title_activity_my_recycle_view"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.FolderActivity"
+            android:label="@string/title_activity_folder"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.BlurActivity"
+            android:label="@string/title_activity_blur"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
