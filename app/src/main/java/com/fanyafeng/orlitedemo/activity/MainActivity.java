@@ -31,6 +31,7 @@ public class MainActivity extends BaseActivity {
         });
         initView();
         initData();
+
     }
 
     private void initView(){
@@ -56,6 +57,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case R.id.btn_blur:
                 startActivity(new Intent(this,BlurActivity.class));
+                break;
+            case R.id.btn_percent_progressbar:
+                startActivity(new Intent(this,ProgressBarActivity.class));
                 break;
         }
     }

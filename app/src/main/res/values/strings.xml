@@ -6,4 +6,5 @@
     <string name="title_activity_my_recycle_view">MyRecycleViewActivity</string>
     <string name="title_activity_folder">FolderActivity</string>
     <string name="title_activity_blur">BlurActivity</string>
+    <string name="title_activity_progress_bar">ProgressBarActivity</string>
 </resources>
