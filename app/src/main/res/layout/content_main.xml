@@ -43,6 +43,12 @@
             android:onClick="onClick"
             android:text="自定义progressbar"/>
         <Button
+            android:id="@+id/btn_circle_loading"
+            android:text="自定义cirlcle loading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"/>
+        <Button
             android:id="@+id/btn_blur"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

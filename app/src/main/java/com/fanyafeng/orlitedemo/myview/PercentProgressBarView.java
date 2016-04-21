@@ -33,6 +33,7 @@ public class PercentProgressBarView extends View {
 
     public void setReachPaintColor(int reachPaintColor) {
         this.reachPaintColor = reachPaintColor;
+        invalidate();
     }
 
     public int getUnReachPaintColor() {
@@ -41,6 +42,7 @@ public class PercentProgressBarView extends View {
 
     public void setUnReachPaintColor(int unReachPaintColor) {
         this.unReachPaintColor = unReachPaintColor;
+        invalidate();
     }
 
     public int getTextPaintColor() {
@@ -49,6 +51,7 @@ public class PercentProgressBarView extends View {
 
     public void setTextPaintColor(int textPaintColor) {
         this.textPaintColor = textPaintColor;
+        invalidate();
     }
 
     public String getInitText() {

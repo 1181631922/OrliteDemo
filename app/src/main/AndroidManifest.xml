@@ -38,6 +38,10 @@
         <activity
             android:name=".activity.ProgressBarActivity"
             android:label="@string/title_activity_progress_bar"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.CircleLoadingActivity"
+            android:label="@string/title_activity_circle_loading"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

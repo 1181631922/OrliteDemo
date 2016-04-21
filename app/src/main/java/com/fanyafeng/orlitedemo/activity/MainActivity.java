@@ -61,6 +61,9 @@ public class MainActivity extends BaseActivity {
             case R.id.btn_percent_progressbar:
                 startActivity(new Intent(this,ProgressBarActivity.class));
                 break;
+            case R.id.btn_circle_loading:
+                startActivity(new Intent(this,CircleLoadingActivity.class));
+                break;
         }
     }
 
