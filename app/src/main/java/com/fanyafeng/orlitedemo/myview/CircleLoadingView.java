@@ -127,49 +127,55 @@ public class CircleLoadingView extends View {
         double everyRadiusLength = 2 * Math.PI / 360;
 
 //        Log.d("TAG", "圆心距离:" + circleLength + "每一度的距离:" + everyRadiusLength);
-
+/*
 //      每个间隔的角度
         double spaceAngle = 11.25;
-
         //      画最后一个要旋转的圆(大圆)
 //      canvas.drawCircle(circleCountourX, circleCountourY - radius * 2, (float) eighthRadius, circleContour);
-        double eighthAngle = durSpace + 30;
+        double eighthAngle = durSpace + 30;//30
+//        Log.d("TAG","第八:"+eighthAngle);//30
         double eighthX = circleCountourX - circleLength * Math.sin(eighthAngle * everyRadiusLength);
         double eighthY = circleCountourY - circleLength * Math.cos(eighthAngle * everyRadiusLength);
         double eighthRadius = circleLength * Math.sin(30 * everyRadiusLength);
         canvas.drawCircle((float) eighthX, (float) eighthY, (float) eighthRadius, circleContour);
 
-        double seventhAngle = durSpace + 30 * 2 + spaceAngle + 26.25;
+        double seventhAngle = durSpace + 30 * 2 + spaceAngle + 26.25;//97.5
+//        Log.d("TAG","第七:"+seventhAngle);//97.5
         double seventhX = circleCountourX - circleLength * Math.sin(seventhAngle * everyRadiusLength);
         double seventhY = circleCountourY - circleLength * Math.cos(seventhAngle * everyRadiusLength);
         double seventhRadius = circleLength * Math.sin(26.25 * everyRadiusLength);
         canvas.drawCircle((float) seventhX, (float) seventhY, (float) seventhRadius, circleContour);
 
         double sixthAngle = durSpace + 30 * 2 + spaceAngle + 26.25 * 2 + spaceAngle + 22.5;
+//        Log.d("TAG","第六:"+sixthAngle);//157.5
         double sixthX = circleCountourX - circleLength * Math.sin(sixthAngle * everyRadiusLength);
         double sixthY = circleCountourY - circleLength * Math.cos(sixthAngle * everyRadiusLength);
         double sixthRadius = circleLength * Math.sin(22.5 * everyRadiusLength);
         canvas.drawCircle((float) sixthX, (float) sixthY, (float) sixthRadius, circleContour);
 
         double fifthAngle = durSpace + 30 * 2 + spaceAngle + 26.25 * 2 + spaceAngle + 22.5 * 2 + spaceAngle + 18.75;
+//        Log.d("TAG","第五:"+fifthAngle);//210
         double fifthX = circleCountourX - circleLength * Math.sin(fifthAngle * everyRadiusLength);
         double fifthY = circleCountourY - circleLength * Math.cos(fifthAngle * everyRadiusLength);
         double fifthRadius = circleLength * Math.sin(18.75 * everyRadiusLength);
         canvas.drawCircle((float) fifthX, (float) fifthY, (float) fifthRadius, circleContour);
 
         double forthAngle = durSpace + 30 * 2 + spaceAngle + 26.25 * 2 + spaceAngle + 22.5 * 2 + spaceAngle + 18.75 * 2 + spaceAngle + 15;
+//        Log.d("TAG","第四:"+forthAngle);//255
         double forthX = circleCountourX - circleLength * Math.sin(forthAngle * everyRadiusLength);
         double forthY = circleCountourY - circleLength * Math.cos(forthAngle * everyRadiusLength);
         double forthRadius = circleLength * Math.sin(15 * everyRadiusLength);
         canvas.drawCircle((float) forthX, (float) forthY, (float) forthRadius, circleContour);
 
         double thirdAngle = durSpace + 30 * 2 + spaceAngle + 26.25 * 2 + spaceAngle + 22.5 * 2 + spaceAngle + 18.75 * 2 + spaceAngle + 15 * 2 + spaceAngle + 11.25;
+//        Log.d("TAG","第三:"+thirdAngle);//292.5
         double thirdX = circleCountourX - circleLength * Math.sin(thirdAngle * everyRadiusLength);
         double thirdY = circleCountourY - circleLength * Math.cos(thirdAngle * everyRadiusLength);
         double thirdRadius = circleLength * Math.sin(11.25 * everyRadiusLength);
         canvas.drawCircle((float) thirdX, (float) thirdY, (float) thirdRadius, circleContour);
 
         double secondAngle = durSpace + 30 * 2 + spaceAngle + 26.25 * 2 + spaceAngle + 22.5 * 2 + spaceAngle + 18.75 * 2 + spaceAngle + 15 * 2 + spaceAngle + 11.25 * 2 + spaceAngle + 7.5;
+//        Log.d("TAG","第二:"+secondAngle);//322.5
         double secondX = circleCountourX - circleLength * Math.sin(secondAngle * everyRadiusLength);
         double secondY = circleCountourY - circleLength * Math.cos(secondAngle * everyRadiusLength);
         double secondRadius = circleLength * Math.sin(7.5 * everyRadiusLength);
@@ -177,10 +183,31 @@ public class CircleLoadingView extends View {
 
 //      求出第一个圆的x和y的位置
         double firstAngle = durSpace + 30 * 2 + spaceAngle + 26.25 * 2 + spaceAngle + 22.5 * 2 + spaceAngle + 18.75 * 2 + spaceAngle + 15 * 2 + spaceAngle + 11.25 * 2 + spaceAngle + 7.5 * 2 + spaceAngle + 3.75;
+//        Log.d("TAG","第一:"+firstAngle);//345
         double firstX = circleCountourX - circleLength * Math.sin(firstAngle * everyRadiusLength);
         double firstY = circleCountourY - circleLength * Math.cos(firstAngle * everyRadiusLength);
         double firstRadius = circleLength * Math.sin(3.75 * everyRadiusLength);
         canvas.drawCircle((float) firstX, (float) firstY, (float) firstRadius, circleContour);
+
+        /*
+        */
+
+//        相差7.5
+        double initAngle = 345;
+        double initRadius = 3.75;//相差3.75
+        for (int i = 0; i < 8; i++) {
+            double temp=0;
+            double total=0;
+            for (int j = 0; j <= i; j++) {
+                 temp=j*7.5;
+                 total+=temp;
+            }
+            double itemAngle = durSpace + (initAngle - (total+i*15));
+            double itemX = circleCountourX - circleLength * Math.sin(itemAngle * everyRadiusLength);
+            double itemY = circleCountourY - circleLength * Math.cos(itemAngle * everyRadiusLength);
+            double itemRadius = circleLength * Math.sin((initRadius + i * 3.75) * everyRadiusLength);
+            canvas.drawCircle((float) itemX, (float) itemY, (float) itemRadius, circleContour);
+        }
 
 //        Log.d("TAG", "第一个圆半径:" + firstRadius + "第二个圆半径:" + secondRadius + "第三个圆半径:" + thirdRadius + "第四个圆半径:" + forthRadius);
 //        Log.d("TAG", "第五个圆半径:" + fifthRadius + "第六个圆半径:" + sixthRadius + "第七个圆半径:" + seventhRadius + "第八个圆半径:" + eighthRadius);

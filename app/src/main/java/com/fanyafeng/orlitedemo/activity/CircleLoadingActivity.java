@@ -39,8 +39,8 @@ public class CircleLoadingActivity extends AppCompatActivity {
 
     private void initData() {
         view_circle_loading.setMessage("加载中...");
-//        view_circle_loading.setCircleContourColor(Color.BLUE);
-//        view_circle_loading.setMessageColor(Color.BLUE);
+        view_circle_loading.setCircleContourColor(Color.BLUE);
+        view_circle_loading.setMessageColor(Color.BLUE);
     }
 
 }
