@@ -8,8 +8,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.fanyafeng.orlitedemo.R;
+import com.fanyafeng.orlitedemo.myview.SpeedCircleView;
 
 public class SpeedCircleViewActivity extends AppCompatActivity {
+    private SpeedCircleView view_speed_circle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,16 @@ public class SpeedCircleViewActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        initView();
+        initData();
+    }
+
+    private void initView(){
+        view_speed_circle= (SpeedCircleView) findViewById(R.id.view_speed_circle);
+    }
+
+    private void initData(){
+        view_speed_circle.setPercent(40);
     }
 
 }
