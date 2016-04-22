@@ -42,6 +42,10 @@
         <activity
             android:name=".activity.CircleLoadingActivity"
             android:label="@string/title_activity_circle_loading"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.SpeedCircleViewActivity"
+            android:label="@string/title_activity_speed_circle_view"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

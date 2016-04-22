@@ -34,35 +34,38 @@ public class MainActivity extends BaseActivity {
 
     }
 
-    private void initView(){
+    private void initView() {
 
     }
 
-    private void initData(){
+    private void initData() {
 
     }
 
     @Override
     public void onClick(View v) {
         super.onClick(v);
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btn_ormlite:
 
                 break;
             case R.id.btn_litepal:
-                startActivity(new Intent(this,LitePalActivity.class));
+                startActivity(new Intent(this, LitePalActivity.class));
                 break;
             case R.id.btn_recycle:
                 startActivity(new Intent(this, MyRecycleViewActivity.class));
                 break;
             case R.id.btn_blur:
-                startActivity(new Intent(this,BlurActivity.class));
+                startActivity(new Intent(this, BlurActivity.class));
                 break;
             case R.id.btn_percent_progressbar:
-                startActivity(new Intent(this,ProgressBarActivity.class));
+                startActivity(new Intent(this, ProgressBarActivity.class));
                 break;
             case R.id.btn_circle_loading:
-                startActivity(new Intent(this,CircleLoadingActivity.class));
+                startActivity(new Intent(this, CircleLoadingActivity.class));
+                break;
+            case R.id.btn_speed_view:
+                startActivity(new Intent(this, SpeedCircleViewActivity.class));
                 break;
         }
     }

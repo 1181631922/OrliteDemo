@@ -164,7 +164,7 @@ public class PercentProgressBarView extends View {
 //              画左侧已完成
                 canvas.drawLine(0, (endY - startY) / 2, tempEndX - (textBounds.width() + 30), (endY - startY) / 2, reachPaint);
 //              画右侧未完成
-                canvas.drawLine(tempEndX+textBounds.width()/2, (endY - startY) / 2, endX, (endY - startY) / 2, unReachPaint);
+                canvas.drawLine(tempEndX + textBounds.width() / 2, (endY - startY) / 2, endX, (endY - startY) / 2, unReachPaint);
 
                 /*
 //              进度
