@@ -46,6 +46,10 @@
         <activity
             android:name=".activity.SpeedCircleViewActivity"
             android:label="@string/title_activity_speed_circle_view"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.CloudActivity"
+            android:label="@string/title_activity_cloud"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

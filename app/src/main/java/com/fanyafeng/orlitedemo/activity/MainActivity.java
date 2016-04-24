@@ -67,6 +67,9 @@ public class MainActivity extends BaseActivity {
             case R.id.btn_speed_view:
                 startActivity(new Intent(this, SpeedCircleViewActivity.class));
                 break;
+            case R.id.btn_cloud_view:
+                startActivity(new Intent(this, CloudActivity.class));
+                break;
         }
     }
 

@@ -9,4 +9,5 @@
     <string name="title_activity_progress_bar">ProgressBarActivity</string>
     <string name="title_activity_circle_loading">CircleLoadingActivity</string>
     <string name="title_activity_speed_circle_view">SpeedCircleViewActivity</string>
+    <string name="title_activity_cloud">CloudActivity</string>
 </resources>
