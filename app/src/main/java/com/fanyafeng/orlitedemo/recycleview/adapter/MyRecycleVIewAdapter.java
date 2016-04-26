@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.fanyafeng.orlitedemo.R;
+import com.fanyafeng.orlitedemo.util.MyUtils;
 
 import java.util.List;
 
@@ -94,7 +96,18 @@ public class MyRecycleViewAdapter extends RecyclerView.Adapter<MyRecycleViewAdap
         @Override
         public void onClick(View v) {
             Toast.makeText(context, "第" + position + "个被点击了", Toast.LENGTH_SHORT).show();
-            popupView.showAsDropDown(v);
+            v.getHeight();
+
+            int[] location = new int[2];
+            v.getLocationInWindow(location);
+            Log.d("TAG", "点击的item的高度:" + v.getHeight() + "x值:" + location[0] + "y值" + location[1]);
+            if (MyUtils.getScreenHeight(context) - MyUtils.getNavigationBarHeight(context) - location[1] < MyUtils.dip2px(context, 80)) {
+                popupView.showAsDropDown(v, MyUtils.getScreenWidth(context) / 2 - (int) MyUtils.dip2px(context, 40), -v.getHeight() - (int) MyUtils.dip2px(context, 80));
+//                popupView.showAsDropDown(v, MyUtils.getScreenWidth(context) / 4 - (int) MyUtils.dip2px(context, 40), -v.getHeight() - (int) MyUtils.dip2px(context, 80));
+            } else {
+                popupView.showAsDropDown(v, MyUtils.getScreenWidth(context) / 2 - (int) MyUtils.dip2px(context, 40), 0);
+//                popupView.showAsDropDown(v, MyUtils.getScreenWidth(context) / 4 - (int) MyUtils.dip2px(context, 40), 0);
+            }
 
         }
     }
