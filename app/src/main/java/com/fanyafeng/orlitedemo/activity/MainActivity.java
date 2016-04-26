@@ -70,6 +70,12 @@ public class MainActivity extends BaseActivity {
             case R.id.btn_cloud_view:
                 startActivity(new Intent(this, CloudActivity.class));
                 break;
+            case R.id.btn_fer_modes:
+                startActivity(new Intent(this, PorterDuffActivity.class));
+                break;
+            case R.id.btn_popup_window:
+                startActivity(new Intent(this,PopupWindowActivity.class));
+                break;
         }
     }
 

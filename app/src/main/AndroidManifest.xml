@@ -50,6 +50,14 @@
         <activity
             android:name=".activity.CloudActivity"
             android:label="@string/title_activity_cloud"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.PorterDuffActivity"
+            android:label="@string/title_activity_porter_duff"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.PopupWindowActivity"
+            android:label="@string/title_activity_popup_window"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

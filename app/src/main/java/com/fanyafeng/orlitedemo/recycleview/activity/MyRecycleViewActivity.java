@@ -76,8 +76,8 @@ public class MyRecycleViewActivity extends BaseActivity {
     private void initData() {
         myRecycleViewAdapter = new MyRecycleViewAdapter(this, stringList);
         rv_myrecycleview.setAdapter(myRecycleViewAdapter);
-//        rv_myrecycleview.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
-        rv_myrecycleview.setLayoutManager(new GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false));
+        rv_myrecycleview.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+//        rv_myrecycleview.setLayoutManager(new GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false));
 
         swipyrefreshlayout.setOnRefreshListener(new SwipyRefreshLayout.OnRefreshListener() {
             @Override

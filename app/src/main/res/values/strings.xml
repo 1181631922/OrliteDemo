@@ -10,4 +10,6 @@
     <string name="title_activity_circle_loading">CircleLoadingActivity</string>
     <string name="title_activity_speed_circle_view">SpeedCircleViewActivity</string>
     <string name="title_activity_cloud">CloudActivity</string>
+    <string name="title_activity_porter_duff">PorterDuffActivity</string>
+    <string name="title_activity_popup_window">PopupWindowActivity</string>
 </resources>
