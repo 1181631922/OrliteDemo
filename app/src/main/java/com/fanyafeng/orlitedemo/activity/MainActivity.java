@@ -74,7 +74,10 @@ public class MainActivity extends BaseActivity {
                 startActivity(new Intent(this, PorterDuffActivity.class));
                 break;
             case R.id.btn_popup_window:
-                startActivity(new Intent(this,PopupWindowActivity.class));
+                startActivity(new Intent(this, PopupWindowActivity.class));
+                break;
+            case R.id.btn_zhima:
+                startActivity(new Intent(this, PolygonActivity.class));
                 break;
         }
     }

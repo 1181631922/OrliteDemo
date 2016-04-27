@@ -58,6 +58,10 @@
         <activity
             android:name=".activity.PopupWindowActivity"
             android:label="@string/title_activity_popup_window"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.PolygonActivity"
+            android:label="@string/title_activity_polygon"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
