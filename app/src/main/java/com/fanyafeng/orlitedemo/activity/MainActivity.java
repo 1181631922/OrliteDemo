@@ -79,6 +79,9 @@ public class MainActivity extends BaseActivity {
             case R.id.btn_zhima:
                 startActivity(new Intent(this, PolygonActivity.class));
                 break;
+            case R.id.btn_bezier:
+                startActivity(new Intent(this, BezierActivity.class));
+                break;
         }
     }
 
