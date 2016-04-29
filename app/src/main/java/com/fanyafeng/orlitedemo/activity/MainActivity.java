@@ -47,7 +47,7 @@ public class MainActivity extends BaseActivity {
         super.onClick(v);
         switch (v.getId()) {
             case R.id.btn_ormlite:
-
+                startActivity(new Intent(this, OrmliteActivity.class));
                 break;
             case R.id.btn_litepal:
                 startActivity(new Intent(this, LitePalActivity.class));

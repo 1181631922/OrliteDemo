@@ -14,4 +14,5 @@
     <string name="title_activity_popup_window">PopupWindowActivity</string>
     <string name="title_activity_polygon">PolygonActivity</string>
     <string name="title_activity_bezier">BezierActivity</string>
+    <string name="title_activity_ormlite">OrmliteActivity</string>
 </resources>
