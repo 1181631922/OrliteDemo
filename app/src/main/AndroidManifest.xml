@@ -66,11 +66,11 @@
         <activity
             android:name=".activity.BezierActivity"
             android:label="@string/title_activity_bezier"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".activity.OrmliteActivity"
             android:label="@string/title_activity_ormlite"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>
