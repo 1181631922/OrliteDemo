@@ -25,8 +25,27 @@ public class CircleLoadingView extends View {
     private StaticLayout messageLayout;
     private static TextPaint textPaint;
 
+    private float heightLength;
+    private float widthLength;
+
     private int circleContourColor;
     private int messageColor;
+
+    public float getHeightLength() {
+        return heightLength;
+    }
+
+    public void setHeightLength(float heightLength) {
+        this.heightLength = heightLength;
+    }
+
+    public float getWidthLength() {
+        return widthLength;
+    }
+
+    public void setWidthLength(float widthLength) {
+        this.widthLength = widthLength;
+    }
 
     public int getCircleContourColor() {
         return circleContourColor;
@@ -69,15 +88,21 @@ public class CircleLoadingView extends View {
 
     public CircleLoadingView(Context context) {
         super(context);
+        init();
     }
 
     public CircleLoadingView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        circleContour = new Paint(Paint.ANTI_ALIAS_FLAG);
+        init();
     }
 
     public CircleLoadingView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        init();
+    }
+
+    private void init() {
+        circleContour = new Paint(Paint.ANTI_ALIAS_FLAG);
     }
 
     @Override
@@ -94,18 +119,18 @@ public class CircleLoadingView extends View {
         circleContour.setStrokeWidth(circleContourStrokeWidth);
 
 
-        float startX = getLeft();
-        float endX = getRight();
+//        float startX = getLeft();
+//        float endX = getRight();
 //        Log.d("TAG","得到的endX的数值:"+endX);
-        float startY = getTop();
-        float endY = getBottom();
-        float height = getHeight();
-        float width = getWidth();
+//        float startY = getTop();
+//        float endY = getBottom();
+        float height = heightLength == 0 ? getHeight() : heightLength;
+        float width = widthLength == 0 ? getWidth() : widthLength;
 //        轮廓的半径
-        float circleContourRadius = (endY > endX ? (endX - startX) / 2 - circleContourStrokeWidth / 2 : (endY - startY) / 2 - circleContourStrokeWidth / 2);
+        float circleContourRadius = (height > width ? width / 2 - circleContourStrokeWidth / 2 : height / 2 - circleContourStrokeWidth / 2);
         float circleCountourX;
         float circleCountourY;
-        if (endX > endY) {
+        if (width > height) {
             circleCountourX = width / 2;
             circleCountourY = height / 2;
         } else {
@@ -196,13 +221,13 @@ public class CircleLoadingView extends View {
         double initAngle = 345;
         double initRadius = 3.75;//相差3.75
         for (int i = 0; i < 8; i++) {
-            double temp=0;
-            double total=0;
+            double temp = 0;
+            double total = 0;
             for (int j = 0; j <= i; j++) {
-                 temp=j*7.5;
-                 total+=temp;
+                temp = j * 7.5;
+                total += temp;
             }
-            double itemAngle = durSpace + (initAngle - (total+i*15));
+            double itemAngle = durSpace + (initAngle - (total + i * 15));
             double itemX = circleCountourX - circleLength * Math.sin(itemAngle * everyRadiusLength);
             double itemY = circleCountourY - circleLength * Math.cos(itemAngle * everyRadiusLength);
             double itemRadius = circleLength * Math.sin((initRadius + i * 3.75) * everyRadiusLength);
