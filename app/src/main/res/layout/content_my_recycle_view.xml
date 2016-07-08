@@ -14,7 +14,7 @@
         android:layout_height="match_parent"
         app:direction="both">
 
-        <android.support.v7.widget.RecyclerView
+        <com.fanyafeng.orlitedemo.myview.NestedRecyclerView
             android:id="@+id/rv_myrecycleview"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />

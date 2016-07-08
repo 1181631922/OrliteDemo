@@ -1,6 +1,5 @@
 package com.fanyafeng.orlitedemo.recycleview.adapter;
 
-import android.app.ActionBar;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -21,7 +20,7 @@ import java.util.List;
 /**
  * Created by 365rili on 16/4/18.
  */
-public class MyRecycleViewAdapter extends RecyclerView.Adapter<MyRecycleViewAdapter.MyRecycleViewHolder> {
+public class MyRecycleVIewAdapter extends RecyclerView.Adapter<MyRecycleVIewAdapter.MyRecycleViewHolder> {
 
     private Context context;
     private List<String> itemList;
@@ -35,7 +34,7 @@ public class MyRecycleViewAdapter extends RecyclerView.Adapter<MyRecycleViewAdap
         void onItemLongClick(View view, int position);
     }
 
-    public MyRecycleViewAdapter(Context context, List<String> itemList) {
+    public MyRecycleVIewAdapter(Context context, List<String> itemList) {
         this.context = context;
         this.itemList = itemList;
     }

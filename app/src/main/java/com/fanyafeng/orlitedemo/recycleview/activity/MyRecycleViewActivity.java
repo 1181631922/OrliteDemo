@@ -3,8 +3,6 @@ package com.fanyafeng.orlitedemo.recycleview.activity;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -15,8 +13,8 @@ import android.widget.Toast;
 import com.fanyafeng.orlitedemo.BaseActivity;
 import com.fanyafeng.orlitedemo.R;
 import com.fanyafeng.orlitedemo.dao.Album;
-import com.fanyafeng.orlitedemo.dao.Song;
-import com.fanyafeng.orlitedemo.recycleview.adapter.MyRecycleViewAdapter;
+import com.fanyafeng.orlitedemo.myview.NestedRecyclerView;
+import com.fanyafeng.orlitedemo.recycleview.adapter.MyRecycleVIewAdapter;
 import com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayout;
 import com.orangegangsters.github.swipyrefreshlayout.library.SwipyRefreshLayoutDirection;
 
@@ -26,9 +24,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MyRecycleViewActivity extends BaseActivity {
-    private RecyclerView rv_myrecycleview;
+    private NestedRecyclerView rv_myrecycleview;
     private List<String> stringList = new ArrayList<>();
-    private MyRecycleViewAdapter myRecycleViewAdapter;
+    private MyRecycleVIewAdapter myRecycleViewAdapter;
     private SwipyRefreshLayout swipyrefreshlayout;
     private int count = 0;
 
@@ -70,13 +68,13 @@ public class MyRecycleViewActivity extends BaseActivity {
 
     private void initView() {
         swipyrefreshlayout = (SwipyRefreshLayout) findViewById(R.id.swipyrefreshlayout);
-        rv_myrecycleview = (RecyclerView) findViewById(R.id.rv_myrecycleview);
+        rv_myrecycleview = (NestedRecyclerView) findViewById(R.id.rv_myrecycleview);
     }
 
     private void initData() {
-        myRecycleViewAdapter = new MyRecycleViewAdapter(this, stringList);
+        myRecycleViewAdapter = new MyRecycleVIewAdapter(this, stringList);
         rv_myrecycleview.setAdapter(myRecycleViewAdapter);
-        rv_myrecycleview.setLayoutManager(new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+        rv_myrecycleview.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
 //        rv_myrecycleview.setLayoutManager(new GridLayoutManager(this, 2, GridLayoutManager.VERTICAL, false));
 
         swipyrefreshlayout.setOnRefreshListener(new SwipyRefreshLayout.OnRefreshListener() {
@@ -95,7 +93,33 @@ public class MyRecycleViewActivity extends BaseActivity {
                 }
             }
         });
+        rv_myrecycleview.setOnScrollListener(new NestedRecyclerView.OnScrollListener() {
+            @Override
+            public void OnScroll(int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
+//                Log.d("nestrecycle","scrollX: " + scrollX + " scrollY: " + scrollY + " oldScrollX: " + oldScrollX + " oldScrollY: " + oldScrollY);
+            }
+        });
+        rv_myrecycleview.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+//                Log.d("nestrecycle","dx: " + dx + " dy: " + dy );
+            }
+        });
+        rv_myrecycleview.setOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                Log.d("nestrecycle", "distance: " + getScollYDistance());
+            }
+        });
     }
 
-
+    public int getScollYDistance() {
+        LinearLayoutManager layoutManager = (LinearLayoutManager) rv_myrecycleview.getLayoutManager();
+        int position = layoutManager.findFirstVisibleItemPosition();
+        View firstVisiableChildView = layoutManager.findViewByPosition(position);
+        int itemHeight = firstVisiableChildView.getHeight();
+        return (position) * itemHeight - firstVisiableChildView.getTop();
+    }
 }
